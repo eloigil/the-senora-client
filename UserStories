@@ -1,0 +1,59 @@
+# ih-webProject
+
+API = tex-to-speech
+
+
+## usersStories
+
+## 404 DONE
+As a user that is looking for something that doesn't exist i want to see a 404 page so i know that it doesn't exist for sure.
+
+## 500 DONE
+As user that encountered an unexpected error while using the app i want to see a nice 500 error page, so that I know what happened.
+
+## signUp
+As user so that I can start managing advices and children.
+
+## login
+As user I want to login so that I can continue managing advices and children.
+
+## logout
+As user I want to logout.
+
+## Home Page redirect
+As user I want to click on the logo and get redirected to the home page.
+
+## Non logged - home page redirect
+As not logged user i want to be redirected to the login / signUp page.
+
+## Create Child
+As user I want to create a child account with name, username and password.
+
+## Create Advice
+As user I want to create child advices for each child.
+
+## Look for advices
+As user i want to see all the advices in each child page.
+
+## Add advs to favourites
+As user I want to add advices to favourites.
+
+## Delete advs
+As user I want to delete advices from list.
+
+## See favs in homepage
+As user I want to se favourites advs in homepage.
+
+## Play adv
+as user I want to send an advice to de listener and play it. And send it too to the child account.
+
+-----------------------------
+
+## log in
+as child user i want to log in
+
+## see notifications
+as child user i want to recieve notifications.
+
+
+!!!!!for burger menu ng Bootstrap or Angular directly
