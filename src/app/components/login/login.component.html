@@ -1,3 +1,14 @@
-<p>
-  login works!
-</p>
+<form [ngClass]="{'has-error': error}" novalidate>
+  <div class="form-login field" [ngClass]="{'has-error': error}">
+    <label>Username</label>
+    <input type="text" [(ngModel)]="user.username" name="username" required/>
+  </div>
+  <div class="form-login field" [ngClass]="{'has-error': error}">
+    <label>Password</label>
+    <input type="password" [(ngModel)]="user.password" name="password" required/>
+  </div>
+  <div class="form-login actions">
+    <button (click)="login()">login</button>
+    <p *ngIf="error" class="error">{{error}}</p>
+  </div>
+</form>
