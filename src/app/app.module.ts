@@ -4,14 +4,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { PageIndexComponent } from './pages/page-index/page-index.component';
+import { AppComponent } from './app.component';
+
+import { AuthService } from './services/auth.service';
+
+// ----PAGES
+import { PageMainComponent } from './pages/page-main/page-main.component';
 import { PageAdviceNewComponent } from './pages/page-advice-new/page-advice-new.component';
 import { PageAuthComponent } from './pages/page-auth/page-auth.component';
 import { PageChildComponent } from './pages/page-child/page-child.component';
 import { PageListenComponent } from './pages/page-listen/page-listen.component';
 import { PageSettingsComponent } from './pages/page-settings/page-settings.component';
 
-import { AppComponent } from './app.component';
+// ----Components
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AdviceListComponent } from './components/advice-list/advice-list.component';
@@ -24,12 +29,12 @@ import { ChildAddFormComponent } from './components/child-add-form/child-add-for
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/index',
+    redirectTo: '/main',
     pathMatch: 'full'
   },
   {
-    path: 'index',
-    component: PageIndexComponent,
+    path: 'main',
+    component: PageMainComponent,
   },
 
   {
@@ -58,7 +63,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    PageIndexComponent,
+    PageMainComponent,
     PageAdviceNewComponent,
     PageAuthComponent,
     PageChildComponent,
@@ -78,7 +83,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
