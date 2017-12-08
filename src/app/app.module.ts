@@ -6,7 +6,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+// ----SERVICES
 import { AuthService } from './services/auth.service';
+
+// ----GUARDS
+import { RequireAuthParentGuard } from './guards/require-auth-parent.guard';
+import { RequireAuthChildGuard } from './guards/require-auth-child.guard';
+import { RequireAnonGuard } from './guards/require-anon.guard';
 
 // ----PAGES
 import { PageMainComponent } from './pages/page-main/page-main.component';
@@ -27,36 +33,13 @@ import { ChildAddFormComponent } from './components/child-add-form/child-add-for
 
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/main',
-    pathMatch: 'full'
-  },
-  {
-    path: 'main',
-    component: PageMainComponent,
-  },
-
-  {
-    path: 'advices-new',
-    component: PageAdviceNewComponent,
-  },
-  {
-    path: 'auth',
-    component: PageAuthComponent,
-  },
-  {
-    path: 'settings',
-    component: PageSettingsComponent,
-  },
-  {
-    path: 'child/:id',
-    component: PageChildComponent,
-  },
-  {
-    path: 'listen',
-    component: PageListenComponent,
-  }
+  { path: '', redirectTo: '/main', pathMatch: 'full' },
+  { path: 'main', component: PageMainComponent },
+  { path: 'advices-new', component: PageAdviceNewComponent },
+  { path: 'auth', component: PageAuthComponent },
+  { path: 'settings', component: PageSettingsComponent },
+  { path: 'child/:id', component: PageChildComponent },
+  { path: 'listen', component: PageListenComponent }
 ];
 
 
@@ -83,7 +66,10 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService],
+  providers: [AuthService,
+    RequireAuthParentGuard,
+    RequireAuthChildGuard,
+    RequireAnonGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
