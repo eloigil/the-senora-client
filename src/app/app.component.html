@@ -1,6 +1,18 @@
-<div style="text-align:center">
+<header>
   <h1>
     Fuuuu
   </h1>
+  <div [ngClass]="{'is-user': user, 'is-anon': anon}">
+    <div *ngIf="loading">
+      <span class="username text">loading...</span>
+    </div>
+    <div *ngIf="!loading && !!user">
+      <a (click)="profile()">{{user.username}}</a>
+      <a (click)="logout()">logout</a>
+    </div>
+  </div>
+  <hr/>
+</header>
+<div style="text-align:center">
   <router-outlet></router-outlet>
 </div>

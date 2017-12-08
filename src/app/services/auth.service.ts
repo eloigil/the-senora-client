@@ -31,7 +31,9 @@ export class AuthService {
   }
 
   signup(user: User) {
+
     const options = new RequestOptions();
+    console.log(apiUrl);
     options.withCredentials = true;
     return this.http.post(apiUrl + '/signup', user, options)
       .map(res => {
