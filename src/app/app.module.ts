@@ -34,12 +34,12 @@ import { ChildAddFormComponent } from './components/child-add-form/child-add-for
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
-  { path: 'main', component: PageMainComponent },
-  { path: 'advices-new', component: PageAdviceNewComponent },
-  { path: 'auth', component: PageAuthComponent },
-  { path: 'settings', component: PageSettingsComponent },
-  { path: 'child/:id', component: PageChildComponent },
-  { path: 'listen', component: PageListenComponent }
+  { path: 'main', canActivate: [RequireAuthParentGuard], component: PageMainComponent },
+  { path: 'advices-new', canActivate: [RequireAuthParentGuard], component: PageAdviceNewComponent },
+  { path: 'auth', canActivate: [RequireAnonGuard], component: PageAuthComponent },
+  { path: 'settings', canActivate: [RequireAuthParentGuard], component: PageSettingsComponent },
+  { path: 'child/:id', canActivate: [RequireAuthParentGuard], component: PageChildComponent },
+  { path: 'listen', canActivate: [RequireAuthParentGuard], component: PageListenComponent }
 ];
 
 
