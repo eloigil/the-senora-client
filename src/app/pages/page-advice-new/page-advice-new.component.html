@@ -1,3 +1,25 @@
 <p>
   page-advice-new works!
 </p>
+<div class="new-advice">
+  <form #myForm="ngForm">
+    <div class="field title">
+      <label>title</label>
+      <input type="text" name="title" [(ngModel)]="advice.title" />
+    </div>
+    <div class="field voice">
+      <label>voice</label>
+      <input type="text" name="voice" [(ngModel)]="advice.voice" />
+    </div>
+    <div class="field text">
+      <label>text</label>
+      <input type="text" name="text" [(ngModel)]="advice.text" />
+    </div>
+    <div *ngFor="let child of children" class="field children">
+      <input type="checkbox" name={{name}} value={{name}}>{{name}}
+    </div>
+    <div>
+      <button (click)="createAdvice()">submit</button>
+    </div>
+  </form>
+</div>

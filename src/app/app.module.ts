@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 
 // ----SERVICES
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
+import { AdviceService } from './services/advice.service';
 
 // ----GUARDS
 import { RequireAuthParentGuard } from './guards/require-auth-parent.guard';
@@ -35,7 +37,7 @@ import { ChildAddFormComponent } from './components/child-add-form/child-add-for
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: 'main', canActivate: [RequireAuthParentGuard], component: PageMainComponent },
-  { path: 'advices-new', canActivate: [RequireAuthParentGuard], component: PageAdviceNewComponent },
+  { path: 'advice-new', canActivate: [RequireAuthParentGuard], component: PageAdviceNewComponent },
   { path: 'auth', canActivate: [RequireAnonGuard], component: PageAuthComponent },
   { path: 'settings', canActivate: [RequireAuthParentGuard], component: PageSettingsComponent },
   { path: 'child/:id', canActivate: [RequireAuthParentGuard], component: PageChildComponent },
@@ -69,7 +71,9 @@ const routes: Routes = [
   providers: [AuthService,
     RequireAuthParentGuard,
     RequireAuthChildGuard,
-    RequireAnonGuard],
+    RequireAnonGuard,
+    AdviceService,
+    UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

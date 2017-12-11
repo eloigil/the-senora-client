@@ -2,5 +2,28 @@
   page-main works!
 </p>
 <p>Hola {{user.name}}</p>
-<app-advice-list></app-advice-list>
-{{user | json}}
+<div class="main-forms">
+  <div class="main-search">
+    <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+      <div class="field search">
+        <label>search</label>
+        <input type="text" name="search" />
+      </div>
+    </form>
+  </div>
+  <div class="main-quick-advice">
+    <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+      <div class="field quick-advice">
+        <label>quick advice</label>
+        <input type="text" name="quick-advice" />
+      </div>
+    </form>
+  </div>
+  <div class="main-new-advice">
+    <a [routerLink]="['/advice-new']">new advice</a>
+  </div>
+</div>
+<hr>
+<div class="favs-list">
+  <app-advice-list></app-advice-list>
+</div>
