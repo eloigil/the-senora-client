@@ -15,11 +15,11 @@
       <label>text</label>
       <input type="text" name="text" [(ngModel)]="advice.text" />
     </div>
-    <div *ngFor="let child of children" class="field children">
-      <input type="checkbox" name={{name}} value={{name}}>{{name}}
+    <div *ngFor="let child of user[0].children" class="field children">
+      <input type="checkbox" name={{child.name}} value={{child._id}}>{{child.name}}
     </div>
     <div>
-      <button (click)="createAdvice()">submit</button>
+      <button (click)="createAdvice(); myForm.reset()">submit</button>
     </div>
   </form>
 </div>

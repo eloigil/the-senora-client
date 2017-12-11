@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ChildListComponent implements OnInit {
 
-  @Input() children;
+  @Input() user;
 
   constructor() { }
 

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
+import { UserService } from '../../services/user.service';
 import { AdviceService } from '../../services/advice.service';
 import { Advice } from '../../models/advice.model';
 
@@ -17,9 +18,16 @@ export class PageAdviceNewComponent implements OnInit {
     text: null
   });
 
-  constructor(private adviceService: AdviceService) { }
+  constructor(
+    private adviceService: AdviceService,
+    private userService: UserService
+  ) { }
+
+  user = [];
 
   ngOnInit() {
+    this.userService.getChildren().subscribe(data => this.user = data);
+
     // getChildren from service and save in children array
   }
 

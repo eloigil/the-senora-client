@@ -10,10 +10,10 @@ export class PageSettingsComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
-  children = [];
+  user = [];
 
   ngOnInit() {
-    this.userService.getChildren().subscribe(data => this.children = data);
+    this.userService.getChildren().subscribe(data => this.user = data);
     // getChildren from service and save in children
   }
 
