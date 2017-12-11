@@ -9,6 +9,8 @@ import { AuthService } from '../../services/auth.service';
 })
 export class PageMainComponent implements OnInit {
   user = null;
+  submitForm: any;
+
 
   constructor(private authService: AuthService) { }
 

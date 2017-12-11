@@ -9,7 +9,7 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./child-add-form.component.css']
 })
 export class ChildAddFormComponent implements OnInit {
-
+  error: any;
   child: User = new User();
   childList: [User];
 
