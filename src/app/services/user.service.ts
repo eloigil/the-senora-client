@@ -32,7 +32,7 @@ export class UserService {
   getChildren() {
     const options = new RequestOptions();
     options.withCredentials = true;
-    console.log('got');
+    // console.log('got');
 
     return this.http.get(apiUrl + '/user/children', options)
       .map(res => {
