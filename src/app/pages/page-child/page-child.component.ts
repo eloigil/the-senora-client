@@ -6,6 +6,7 @@ import { AdviceService } from '../../services/advice.service';
 import { UserService } from '../../services/user.service';
 
 import { AdviceListComponent } from '../../components/advice-list/advice-list.component';
+import { AdviceItemComponent } from '../../components/advice-item/advice-item.component';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class PageChildComponent implements OnInit {
 
   id: any;
   userData: any;
-  advices: Array<any>;
+  advices: any;
 
   constructor(
     private adviceService: AdviceService,

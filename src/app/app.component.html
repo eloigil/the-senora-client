@@ -1,18 +1,20 @@
 <header>
   <h1>
-    <a [routerLink]="['/main']">Fuuuu</a>
+    <div class="header-icon">
+      <img [routerLink]="['/main']" src="../assets/img/senora-resize.png">
+    </div>
   </h1>
-  <div [ngClass]="{'is-user': user, 'is-anon': anon}">
-    <div *ngIf="loading">
-      <span class="username text">loading...</span>
-    </div>
-    <div *ngIf="!loading && !!user">
-      <a (click)="profile()">{{user.username}}</a>
-      <a (click)="logout()">logout</a>
-    </div>
-  </div>
-  <hr/>
 </header>
+
+<div [ngClass]="{'is-user': user, 'is-anon': anon}">
+  <div *ngIf="loading">
+    <span class="username text">loading...</span>
+  </div>
+  <div *ngIf="!loading && !!user">
+    <a (click)="logout()">logout</a>
+  </div>
+</div>
+<hr/>
 <div style="text-align:center">
   <router-outlet></router-outlet>
 </div>

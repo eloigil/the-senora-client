@@ -23,9 +23,7 @@ export class AdviceService {
   getAdvices(id) {
     const options = new RequestOptions();
     options.withCredentials = true;
-    // console.log('got');
-
-    return this.http.get(apiUrl + `advices/${id}`, options)
+    return this.http.get(apiUrl + `/advices/${id}`, options)
       .map(res => {
         return res.json();
       });
