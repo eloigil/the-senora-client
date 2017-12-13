@@ -1,4 +1,5 @@
 export class Advice {
+
     title: String;
     voice: String;
     text: String;

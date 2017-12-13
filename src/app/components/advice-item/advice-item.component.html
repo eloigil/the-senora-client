@@ -1,1 +1,11 @@
-
+<div>
+  {{advice.title}}
+</div>
+<div class="favorite">
+  <p *ngIf="advice.favorite" (click)="handleClick()">
+    Favorite
+  </p>
+  <p *ngIf="!advice.favorite" (click)="handleClick()">
+    No Favorite
+  </p>
+</div>

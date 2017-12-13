@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
@@ -6,7 +6,6 @@ import { AdviceService } from '../../services/advice.service';
 import { UserService } from '../../services/user.service';
 
 import { AdviceListComponent } from '../../components/advice-list/advice-list.component';
-import { AdviceItemComponent } from '../../components/advice-item/advice-item.component';
 
 
 @Component({
@@ -23,7 +22,7 @@ export class PageChildComponent implements OnInit {
   constructor(
     private adviceService: AdviceService,
     private userService: UserService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -41,7 +40,13 @@ export class PageChildComponent implements OnInit {
   }
   getAdvices() {
     this.adviceService.getAdvices(this.id).subscribe(data => { this.advices = data; });
+  }
 
+  handleOnChange(advice) {
+    this.adviceService.updateAdvice(advice)
+      .subscribe((elem) => {
+        this.adviceService.getAdvices(this.id).subscribe(data => { this.advices = data; });
+      });
   }
 }
 

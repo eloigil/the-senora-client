@@ -32,6 +32,8 @@ import { AdviceItemComponent } from './components/advice-item/advice-item.compon
 import { ChildListComponent } from './components/child-list/child-list.component';
 import { ChildItemComponent } from './components/child-item/child-item.component';
 import { ChildAddFormComponent } from './components/child-add-form/child-add-form.component';
+import { AlertsComponent } from './components/alerts/alerts.component';
+import { PageChildMainComponent } from './pages/page-child-main/page-child-main.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -59,7 +61,9 @@ const routes: Routes = [
     AdviceItemComponent,
     ChildListComponent,
     ChildItemComponent,
-    ChildAddFormComponent
+    ChildAddFormComponent,
+    AlertsComponent,
+    PageChildMainComponent
   ],
   imports: [
     BrowserModule,

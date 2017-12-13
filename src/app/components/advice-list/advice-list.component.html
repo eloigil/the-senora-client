@@ -2,7 +2,5 @@
   advice-list works!
 </p>
 <div *ngFor="let advice of advices">
-  <div>
-    {{advice.title}}
-  </div>
+  <app-advice-item [advice]="advice" (changeFavorite)="changeFavorite($event)"> </app-advice-item>
 </div>

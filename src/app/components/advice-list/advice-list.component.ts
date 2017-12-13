@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AdviceItemComponent } from '../../components/advice-item/advice-item.component';
 
 
@@ -8,13 +8,18 @@ import { AdviceItemComponent } from '../../components/advice-item/advice-item.co
   styleUrls: ['./advice-list.component.css']
 })
 export class AdviceListComponent implements OnInit {
-
+  id: string;
   // something missing
   @Input() advices: Array<any>;
+  @Output() onChangeAdvice = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  changeFavorite(advice) {
+    this.onChangeAdvice.emit(advice);
   }
 
 }

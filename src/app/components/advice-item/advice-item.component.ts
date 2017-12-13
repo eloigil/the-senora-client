@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 
 
@@ -8,11 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./advice-item.component.css']
 })
 export class AdviceItemComponent implements OnInit {
-  // @Input() advices: Array<any>;
+  @Input() advice;
+  @Output() changeFavorite = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  handleClick() {
+    // console.log(this.advice);
+    this.changeFavorite.emit(this.advice);
   }
 
 }
