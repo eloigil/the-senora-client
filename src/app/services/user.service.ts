@@ -43,4 +43,19 @@ export class UserService {
     //   return data.map((obj) => new User(obj));
     // });
   }
+
+  getChildById(id) {
+    const options = new RequestOptions();
+    options.withCredentials = true;
+    // console.log('got');
+
+    return this.http.get(apiUrl + `/user/${id}`, options)
+      .map(res => {
+        return res.json();
+      });
+    // .map((res: Response) => {
+    //   const data = res.json();
+    //   return data.map((obj) => new User(obj));
+    // });
+  }
 }

@@ -1,6 +1,8 @@
 <!-- {{children | json}} -->
-<div *ngFor="let child of user[0].children">
-  <div>
-    {{child.name}}
+<ng-container *ngIf="user[0].children">
+  <div *ngFor="let child of user[0].children">
+    <div>
+      {{child.name}}
+    </div>
   </div>
-</div>
+</ng-container>

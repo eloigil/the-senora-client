@@ -1,5 +1,12 @@
 <p>
   page-child works!
 </p>
+<ng-container *ngIf="userData">
+  <div>
+    {{userData.name}}
+  </div>
+</ng-container>
+
+
 
 <app-advice-list></app-advice-list>

@@ -15,10 +15,11 @@
       <label>text</label>
       <input type="text" name="text" [(ngModel)]="advice.text" />
     </div>
-    <ng-container *ngIf="user[0].children">
+    <ng-container *ngIf="user[0]">
       <div *ngFor="let child of user[0].children" class="field children">
-        <input type="radio" name={{child.name}} id={{child.name}} value={{child._id}}/>
-        <label for={{child.name}}>{{child.name}}</label>
+        <!-- it is always posting same id !!!!!!!!!-->
+        <input type="radio" name="childId" id="{{child.name}}" [(ngModel)]="advice.childId" value="{{child._id}}">
+        <label for="{{child.name}}">{{child.name}}{{child._id}}</label>
       </div>
     </ng-container>
     <div>

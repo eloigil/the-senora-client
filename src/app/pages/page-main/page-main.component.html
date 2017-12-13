@@ -8,6 +8,16 @@
   <div class="menu-item">
     <a routerLink='/settings'>Settings</a>
   </div>
+  <div class="menu-item">
+    <p>
+      My Children
+    </p>
+    <ng-container *ngIf="userArray[0]">
+      <div class='child-list' *ngFor="let child of userArray[0].children">
+        <a routerLink='/child/{{child._id}}'>{{child.name}}</a>
+      </div>
+    </ng-container>
+  </div>
 </div>
 <hr>
 <p>Hola {{user.name}}</p>

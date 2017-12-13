@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-advice-list',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./advice-list.component.css']
 })
 export class AdviceListComponent implements OnInit {
+
+  // something missing
+  @Input() advices: Array<any>;
 
   constructor() { }
 

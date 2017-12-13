@@ -27,7 +27,6 @@ export class PageAdviceNewComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getChildren().subscribe(data => this.user = data);
-
     // getChildren from service and save in children array
   }
 

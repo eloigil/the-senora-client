@@ -1,3 +1,8 @@
 <p>
   advice-list works!
 </p>
+<div *ngFor="let advice of advices">
+  <div>
+    {{advice | json}} {{advice.title}}
+  </div>
+</div>

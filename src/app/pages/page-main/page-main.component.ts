@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user.model';
+
 
 @Component({
   selector: 'app-page-main',
@@ -12,10 +15,17 @@ export class PageMainComponent implements OnInit {
   submitForm: any;
 
 
-  constructor(private authService: AuthService) { }
+
+  constructor(
+    private authService: AuthService,
+    private userService: UserService
+  ) { }
+
+  userArray = [];
 
   ngOnInit() {
     this.user = this.authService.getUser();
+    this.userService.getChildren().subscribe(data => this.userArray = data);
   }
 
 }

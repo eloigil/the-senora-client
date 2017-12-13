@@ -20,6 +20,21 @@ export class AdviceService {
   constructor(private http: Http) { }
 
 
+  getAdvices(id) {
+    const options = new RequestOptions();
+    options.withCredentials = true;
+    // console.log('got');
+
+    return this.http.get(apiUrl + `advices/${id}`, options)
+      .map(res => {
+        return res.json();
+      });
+    // .map((res: Response) => {
+    //   const data = res.json();
+    //   return data.map((obj) => new User(obj));
+    // });
+  }
+
 
   createAdvice(advice: Advice) {
     const options = new RequestOptions();
