@@ -33,6 +33,18 @@ export class AdviceService {
     // });
   }
 
+  getFavoriteAdvices(id) {
+    const options = new RequestOptions();
+    options.withCredentials = true;
+    return this.http.get(apiUrl + `/advices/${id}/favorites`, options)
+      .map(res => {
+        return res.json();
+      });
+    // .map((res: Response) => {
+    //   const data = res.json();
+    //   return data.map((obj) => new User(obj));
+    // });
+  }
 
   createAdvice(advice: Advice) {
     const options = new RequestOptions();

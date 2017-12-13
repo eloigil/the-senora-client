@@ -1,45 +1,53 @@
-<p>Hola {{user.name}}</p>
-<div class="menu">
-  <p>
-    menu
-  </p>
-  <div class="menu-item">
-    <a routerLink='/settings'>Settings</a>
-  </div>
-  <div class="menu-item">
+<p>Hola {{userArray[0].name}}</p>
+
+<ng-container *ngIf="userArray[0].role === 'parent'">
+  <div class="menu">
     <p>
-      My Children
+      menu
     </p>
-    <ng-container *ngIf="userArray[0]">
-      <div class='child-list' *ngFor="let child of userArray[0].children">
-        <a routerLink='/child/{{child._id}}'>{{child.name}}</a>
-      </div>
-    </ng-container>
+    <div class="menu-item">
+      <a routerLink='/settings'>Settings</a>
+    </div>
+    <div class="menu-item">
+      <p>
+        My Children
+      </p>
+      <ng-container *ngIf="userArray[0]">
+        <div class='child-list' *ngFor="let child of userArray[0].children">
+          <a routerLink='/child/{{child._id}}'>{{child.name}}</a>
+        </div>
+      </ng-container>
+    </div>
   </div>
-</div>
-<hr>
-<div class="main-forms">
-  <div class="main-search">
-    <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
-      <div class="field search">
-        <label>search</label>
-        <input type="text" name="search" />
-      </div>
-    </form>
+  <hr>
+  <div class="main-forms">
+    <div class="main-search">
+      <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+        <div class="field search">
+          <label>search</label>
+          <input type="text" name="search" />
+        </div>
+      </form>
+    </div>
+    <div class="main-quick-advice">
+      <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+        <div class="field quick-advice">
+          <label>quick advice</label>
+          <input type="text" name="quick-advice" />
+        </div>
+      </form>
+    </div>
+    <div class="main-new-advice">
+      <a [routerLink]="['/advice-new']">new advice</a>
+    </div>
   </div>
-  <div class="main-quick-advice">
-    <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
-      <div class="field quick-advice">
-        <label>quick advice</label>
-        <input type="text" name="quick-advice" />
-      </div>
-    </form>
+  <hr>
+  <div class="favs-list">
+    <app-advice-list [advices]="advices"></app-advice-list>
   </div>
-  <div class="main-new-advice">
-    <a [routerLink]="['/advice-new']">new advice</a>
+</ng-container>
+<ng-container *ngIf="userArray[0].role === 'child'">
+  <div class="alert">
+
   </div>
-</div>
-<hr>
-<div class="favs-list">
-  <app-advice-list></app-advice-list>
-</div>
+</ng-container>
