@@ -12,6 +12,7 @@ interface Message {
 })
 export class MessagesComponent implements OnInit {
   messages: any;
+  message: any;
 
   @Input() user: any;
 
