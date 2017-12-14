@@ -25,12 +25,14 @@ export class PageMainComponent implements OnInit {
   advices: any = [];
   id: any;
   userArray: any = [];
+  error: string;
 
   constructor(
     private authService: AuthService,
     private userService: UserService,
     private adviceService: AdviceService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
 
   ) { }
 
@@ -54,4 +56,13 @@ export class PageMainComponent implements OnInit {
     });
 
   }
+  logout() {
+    this.error = null;
+    this.authService.logout()
+      .subscribe(
+      () => this.router.navigate(['/auth']),
+      (err) => this.error = err
+      );
+  }
+
 }

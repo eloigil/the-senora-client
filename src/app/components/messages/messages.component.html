@@ -1,0 +1,10 @@
+<!-- <label for="message">Message</label>
+<input type="text" id="message" [(ngModel)]="messageText"> -->
+{{message | json}}
+<div *ngFor="let message of messages">
+  {{message.text}}
+  <div *ngIf="message.ChildId === message._id"></div>
+</div>
+<div class="btn-okay" *ngIf="!!messages">
+  <a (click)="refresh()">OKAY</a>
+</div>

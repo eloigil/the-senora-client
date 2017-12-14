@@ -1,18 +1,11 @@
-<header>
-  <div class="header-icon">
-    <img [routerLink]="['/main']" src="../assets/img/senora-resize.png">
-  </div>
-</header>
-
 <div [ngClass]="{'is-user': user, 'is-anon': anon}">
   <div *ngIf="loading">
-    <span class="username text">loading...</span>
-  </div>
-  <div *ngIf="!loading && !!user">
-    <a (click)="logout()">logout</a>
+    <div class="username text">
+      <img src="../assets/img/senora-resize.png" />
+      <p> Loading...</p>
+    </div>
   </div>
 </div>
-<hr/>
 <div style="text-align:center">
   <router-outlet></router-outlet>
 </div>

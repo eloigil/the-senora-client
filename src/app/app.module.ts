@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { AdviceService } from './services/advice.service';
+import { PusherService } from './services/pusher.service';
 
 // ----GUARDS
 import { RequireAuthParentGuard } from './guards/require-auth-parent.guard';
@@ -33,6 +34,7 @@ import { ChildListComponent } from './components/child-list/child-list.component
 import { ChildItemComponent } from './components/child-item/child-item.component';
 import { ChildAddFormComponent } from './components/child-add-form/child-add-form.component';
 import { AlertsComponent } from './components/alerts/alerts.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -41,7 +43,8 @@ const routes: Routes = [
   { path: 'auth', canActivate: [RequireAnonGuard], component: PageAuthComponent },
   { path: 'settings', canActivate: [RequireAuthParentGuard], component: PageSettingsComponent },
   { path: 'child/:id', canActivate: [RequireAuthParentGuard], component: PageChildComponent },
-  { path: 'listen', canActivate: [RequireAuthParentGuard], component: PageListenComponent }
+  { path: 'listen', canActivate: [RequireAuthParentGuard], component: PageListenComponent },
+  { path: '', component: MessagesComponent }
 ];
 
 
@@ -62,6 +65,7 @@ const routes: Routes = [
     ChildItemComponent,
     ChildAddFormComponent,
     AlertsComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +78,8 @@ const routes: Routes = [
     RequireAuthChildGuard,
     RequireAnonGuard,
     AdviceService,
-    UserService],
+    UserService,
+    PusherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
