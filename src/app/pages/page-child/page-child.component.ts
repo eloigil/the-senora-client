@@ -42,8 +42,14 @@ export class PageChildComponent implements OnInit {
     this.adviceService.getAdvices(this.id).subscribe(data => { this.advices = data; });
   }
 
-  handleOnChange(advice) {
+  handleOnChangeAdvice(advice) {
     this.adviceService.updateAdvice(advice)
+      .subscribe((elem) => {
+        this.adviceService.getAdvices(this.id).subscribe(data => { this.advices = data; });
+      });
+  }
+  handleOnChangeAlert(alert) {
+    this.adviceService.updateAlert(alert)
       .subscribe((elem) => {
         this.adviceService.getAdvices(this.id).subscribe(data => { this.advices = data; });
       });

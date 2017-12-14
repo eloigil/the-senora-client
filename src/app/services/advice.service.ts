@@ -66,4 +66,13 @@ export class AdviceService {
         return res.json();
       });
   }
+  updateAlert(advice) {
+    const options = new RequestOptions();
+    options.withCredentials = true;
+
+    return this.http.put(apiUrl + '/advices/' + advice._id + '/alert', advice, options)
+      .map(res => {
+        return res.json();
+      });
+  }
 }

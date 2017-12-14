@@ -10,6 +10,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class AdviceItemComponent implements OnInit {
   @Input() advice;
   @Output() changeFavorite = new EventEmitter();
+  @Output() changeAlert = new EventEmitter();
 
   constructor() { }
 
@@ -19,6 +20,10 @@ export class AdviceItemComponent implements OnInit {
   handleClick() {
     // console.log(this.advice);
     this.changeFavorite.emit(this.advice);
+  }
+  handleClickRun() {
+    // console.log(this.advice);
+    this.changeAlert.emit(this.advice);
   }
 
 }

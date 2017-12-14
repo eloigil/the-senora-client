@@ -42,9 +42,13 @@
     </div>
   </div>
   <hr>
-  <div class="favs-list">
+
+  <div class="favs-list" *ngFor="let child of userArray[0].children ">
+    <p>{{child.name}}</p>
     <app-advice-list [advices]="advices"></app-advice-list>
+
   </div>
+
 </ng-container>
 <ng-container *ngIf="userArray[0].role === 'child'">
   <div class="alert">

@@ -12,6 +12,7 @@ export class AdviceListComponent implements OnInit {
   // something missing
   @Input() advices: Array<any>;
   @Output() onChangeAdvice = new EventEmitter();
+  @Output() onChangeAlert = new EventEmitter();
 
   constructor() { }
 
@@ -20,6 +21,9 @@ export class AdviceListComponent implements OnInit {
 
   changeFavorite(advice) {
     this.onChangeAdvice.emit(advice);
+  }
+  changeAlert(alert) {
+    this.onChangeAlert.emit(alert);
   }
 
 }
