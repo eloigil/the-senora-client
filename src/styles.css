@@ -28,12 +28,20 @@ html {
 }
 
 a,
-h1,
 p,
 div {
+  font-size: 20px;
   margin: 0px;
   padding: 0px;
   color: white;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 30px;
+  margin: 0px;
+  padding: 0px;
+  color: #FF0096;
 }
 
 .icon {

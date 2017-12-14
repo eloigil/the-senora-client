@@ -1,12 +1,15 @@
 <ng-container *ngIf="userArray[0].role === 'child'">
-  <p>
+  <h1>
     Hola {{userArray[0].name}}
-  </p>
+  </h1>
 
   <div class="alert">
 
     <app-messages [user]="userArray[0]"></app-messages>
 
+  </div>
+  <div class="btn-okay" *ngIf="!!messages">
+    <a (click)="refresh()">OKAY</a>
   </div>
 
 </ng-container>
@@ -14,32 +17,23 @@
 
 
 <ng-container *ngIf="userArray[0].role === 'parent'">
-  <p>
+  <h1>
     Hola {{userArray[0].name}}
-  </p>
-  <section class="main-container">
-    <div class="menu">
-      <p>
-        Menu
-      </p>
-      <div class="logout actions">
-        <a (click)="logout()">Log Out</a>
-        <p *ngIf="error" class="error">{{error}}</p>
-      </div>
-      <div class="menu-item">
-        <a routerLink='/settings'>Settings</a>
-      </div>
-      <div class="menu-item">
-        <p>
-          My Children
-        </p>
-        <ng-container *ngIf="userArray[0]">
-          <div class='child-list' *ngFor="let child of userArray[0].children">
-            <a routerLink='/child/{{child._id}}'>{{child.name}}</a>
-          </div>
-        </ng-container>
-      </div>
+  </h1>
+  <div class="menu">
+    <h1>
+      Menu
+    </h1>
+    <div class="logout actions">
+      <a (click)="logout()">Log Out</a>
+      <p *ngIf="error" class="error">{{error}}</p>
     </div>
+    <div class="menu-item">
+      <a routerLink='/settings'>Settings</a>
+    </div>
+  </div>
+  <section class="main-container">
+
     <!-- <div class="main-forms">
 main
       <div class="main-search">
@@ -60,14 +54,28 @@ main
         </form>
       </div>
     </div> -->
-    <div class="main-new-advice">
-      <a [routerLink]="['/advice-new']">new advice</a>
-    </div>
+    <section class="wall-container">
+      <div class="main-new-advice">
+        <a [routerLink]="['/advice-new']">new advice</a>
+      </div>
+      <div class="children">
+        <h1>
+          My Children
+        </h1>
+        <ng-container *ngIf="userArray[0]">
+          <div class='child-list' *ngFor="let child of userArray[0].children">
+            <a routerLink='/child/{{child._id}}'>{{child.name}}</a>
+          </div>
+        </ng-container>
+      </div>
+    </section>
+
   </section>
+
 
   <hr>
   <div class="favs-list" *ngFor="let child of children ">
-    <p>{{child.name}}</p>
+    <h1>{{child.name}}</h1>
     <app-advice-list [advices]="child.advices"></app-advice-list>
 
   </div>
