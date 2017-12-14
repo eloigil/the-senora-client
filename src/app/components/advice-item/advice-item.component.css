@@ -1,0 +1,15 @@
+.advice-item-component {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: rgba(48, 49, 62, 0.5);
+  margin: 5%;
+  padding: 10px 0px;
+  border-radius: 5px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

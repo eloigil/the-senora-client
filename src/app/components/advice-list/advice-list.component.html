@@ -1,6 +1,3 @@
-<p>
-  advice-list works!
-</p>
-<div *ngFor="let advice of advices">
+<div class="advice-list-component" *ngFor="let advice of advices">
   <app-advice-item [advice]="advice" (changeFavorite)="changeFavorite($event)" (changeAlert)="changeAlert($event)"> </app-advice-item>
 </div>

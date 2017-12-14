@@ -1,72 +1,75 @@
-<ng-container *ngIf="userArray[0].role === 'parent'">
-  <p>
-    Hola {{userArray[0].name}}
-  </p>
-  <header>
-    <div class="header-icon">
-      <img [routerLink]="['/main']" src="../assets/img/senora-resize.png">
-    </div>
-    <div class="form-logout actions">
-      <a (click)="logout()">Log Out</a>
-      <p *ngIf="error" class="error">{{error}}</p>
-    </div>
-  </header>
-
-  <div class="menu">
-    <p>
-      menu
-    </p>
-    <div class="menu-item">
-      <a routerLink='/settings'>Settings</a>
-    </div>
-    <div class="menu-item">
-      <p>
-        My Children
-      </p>
-      <ng-container *ngIf="userArray[0]">
-        <div class='child-list' *ngFor="let child of userArray[0].children">
-          <a routerLink='/child/{{child._id}}'>{{child.name}}</a>
-        </div>
-      </ng-container>
-    </div>
-  </div>
-  <hr>
-  <div class="main-forms">
-    <!-- <div class="main-search">
-      <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
-        <div class="field search"> -->
-    <!-- <label>search</label> -->
-    <!-- <input type="text" name="search" />
-  </div>
-  </form> -->
-    <!-- </div> -->
-    <div class="main-quick-advice">
-      <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
-        <div class="field quick-advice">
-          <label>quick advice</label>
-          <input type="text" name="quick-advice" />
-        </div>
-      </form>
-    </div>
-    <div class="main-new-advice">
-      <a [routerLink]="['/advice-new']">new advice</a>
-    </div>
-  </div>
-  <hr> {{advices|json}}
-  <div class="favs-list" *ngFor="let child of userArray[0].children ">
-    <p>{{child.name}}</p>
-    <app-advice-list [advices]="advices"></app-advice-list>
-
-  </div>
-  <app-messages></app-messages>
-</ng-container>
 <ng-container *ngIf="userArray[0].role === 'child'">
   <p>
     Hola {{userArray[0].name}}
   </p>
+
   <div class="alert">
+
     <app-messages [user]="userArray[0]"></app-messages>
 
   </div>
 
+</ng-container>
+
+
+
+<ng-container *ngIf="userArray[0].role === 'parent'">
+  <p>
+    Hola {{userArray[0].name}}
+  </p>
+  <section class="main-container">
+    <div class="menu">
+      <p>
+        Menu
+      </p>
+      <div class="logout actions">
+        <a (click)="logout()">Log Out</a>
+        <p *ngIf="error" class="error">{{error}}</p>
+      </div>
+      <div class="menu-item">
+        <a routerLink='/settings'>Settings</a>
+      </div>
+      <div class="menu-item">
+        <p>
+          My Children
+        </p>
+        <ng-container *ngIf="userArray[0]">
+          <div class='child-list' *ngFor="let child of userArray[0].children">
+            <a routerLink='/child/{{child._id}}'>{{child.name}}</a>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <!-- <div class="main-forms">
+main
+      <div class="main-search">
+        <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+          <div class="field search">
+            <label>search</label>
+            <input type="text" name="search" />
+          </div>
+        </form>
+      </div>
+
+      <div class="main-quick-advice">
+        <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm">
+          <div class="field quick-advice">
+            <label>quick advice</label>
+            <input type="text" name="quick-advice" />
+          </div>
+        </form>
+      </div>
+    </div> -->
+    <div class="main-new-advice">
+      <a [routerLink]="['/advice-new']">new advice</a>
+    </div>
+  </section>
+
+  <hr>
+  <div class="favs-list" *ngFor="let child of children ">
+    <p>{{child.name}}</p>
+    <app-advice-list [advices]="child.advices"></app-advice-list>
+
+  </div>
+  <app-messages></app-messages>
 </ng-container>

@@ -26,6 +26,7 @@ export class PageMainComponent implements OnInit {
   id: any;
   userArray: any = [];
   error: string;
+  children: any = [];
 
   constructor(
     private authService: AuthService,
@@ -39,8 +40,6 @@ export class PageMainComponent implements OnInit {
   ngOnInit() {
     this.getUserAuth();
     this.getUserArray();
-
-
   }
   getUserAuth() {
     this.user = this.authService.getUser();
@@ -48,10 +47,15 @@ export class PageMainComponent implements OnInit {
   getUserArray() {
     this.userService.getChildren().subscribe(data => {
       this.userArray = data;
+      this.getFavoritesAdvices();
+    });
 
-      this.adviceService.getFavoriteAdvices(this.userArray[0]).subscribe(result => {
-        this.advices = result;
-        console.log(this.advices);
+  }
+  getFavoritesAdvices() {
+    this.userArray[0].children.forEach((elem, i) => {
+      this.children.push(elem);
+      this.adviceService.getFavoriteAdvices(elem._id).subscribe(result => {
+        this.children[i].advices = result;
       });
     });
 

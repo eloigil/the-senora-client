@@ -1,16 +1,20 @@
-<div>
-  {{advice.title}}
-</div>
-<div class="favorite">
-  <p *ngIf="advice.favorite" (click)="handleClick()">
-    Favorite
-  </p>
-  <p *ngIf="!advice.favorite" (click)="handleClick()">
-    No Favorite
-  </p>
-</div>
-<div class="run">
-  <p (click)="handleClickRun()">
-    Run
-  </p>
+<div class="advice-item-component">
+  <div class="title">
+    {{advice.title}}
+  </div>
+  <div class="favorite">
+    <div *ngIf="advice.favorite" (click)="handleClick()">
+      <img class="icon" src="../../assets/img/fav-yes.png" />
+    </div>
+    <div *ngIf="!advice.favorite" (click)="handleClick()">
+      <img class="icon" src="../../assets/img/fav-no.png" />
+    </div>
+  </div>
+  <div class="run">
+    <div class="run">
+      <div (click)="handleClickRun()">
+        <img class="icon" src="../../assets/img/run.png" />
+      </div>
+    </div>
+  </div>
 </div>

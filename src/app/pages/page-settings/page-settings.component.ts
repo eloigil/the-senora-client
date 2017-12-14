@@ -17,4 +17,17 @@ export class PageSettingsComponent implements OnInit {
     // getChildren from service and save in children
   }
 
+  handleDelete(child) {
+    this.userService.deleteChild(child._id)
+      .subscribe((result) => {
+        this.userService.getChildren().subscribe(data => this.user = data);
+      },
+      (err) => console.log(err));
+  }
+
+  handleCreate() {
+
+    this.userService.getChildren().subscribe(data => this.user = data);
+  }
+
 }

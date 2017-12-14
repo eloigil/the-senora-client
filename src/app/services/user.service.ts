@@ -58,4 +58,14 @@ export class UserService {
     //   return data.map((obj) => new User(obj));
     // });
   }
+
+  deleteChild(id) {
+    const options = new RequestOptions();
+    options.withCredentials = true;
+
+    return this.http.delete(apiUrl + `/user/${id}`, options)
+      .map(res => {
+        return res.json();
+      });
+  }
 }

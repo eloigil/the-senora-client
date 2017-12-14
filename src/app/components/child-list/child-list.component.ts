@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-child-list',
@@ -8,10 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ChildListComponent implements OnInit {
 
   @Input() user;
+  @Output() onDelete = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  handleClick(child) {
+    this.onDelete.emit(child);
   }
 
 }

@@ -17,18 +17,26 @@ html {
 body {
   margin: 0px;
   padding: 0px;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 html {
   background-image: url("./assets/img/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 a,
 h1,
 p,
 div {
+  margin: 0px;
+  padding: 0px;
   color: white;
+}
+
+.icon {
+  height: 30px;
+  width: 30px;
 }

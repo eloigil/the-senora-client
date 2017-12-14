@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../models/user.model';
 
 import { UserService } from '../../services/user.service';
@@ -13,6 +13,9 @@ export class ChildAddFormComponent implements OnInit {
   child: User = new User();
   childList: [User];
 
+
+  @Output() onCreate = new EventEmitter<any>();
+
   constructor(private userService: UserService
 
   ) { }
@@ -23,7 +26,10 @@ export class ChildAddFormComponent implements OnInit {
 
   addChild() {
     this.userService.createChild(this.child)
-      .subscribe(data => console.log(data));
+      .subscribe(data => {
+        this.child = new User();
+        this.onCreate.emit();
+      });
   }
 
 }
