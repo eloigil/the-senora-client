@@ -2,15 +2,16 @@
   <h1>
     Hola {{userArray[0].name}}
   </h1>
+  <hr>
 
   <div class="alert">
 
     <app-messages [user]="userArray[0]"></app-messages>
 
   </div>
-  <div class="btn-okay" *ngIf="!!messages">
-    <a (click)="refresh()">OKAY</a>
-  </div>
+
+  <a (click)="refresh()">OKAY</a>
+
 
 </ng-container>
 
@@ -20,6 +21,7 @@
   <h1>
     Hola {{userArray[0].name}}
   </h1>
+  <hr>
   <div class="menu">
     <h1>
       Menu

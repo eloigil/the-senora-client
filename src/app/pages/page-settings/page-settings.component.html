@@ -1,6 +1,3 @@
-<p>
-  page-settings works!
-</p>
 <ng-container *ngIf="user">
   <app-child-list [user]="user" (onDelete)="handleDelete($event)"></app-child-list>
   <app-child-add-form (onCreate)="handleCreate()"></app-child-add-form>

@@ -68,5 +68,8 @@ export class PageMainComponent implements OnInit {
       (err) => this.error = err
       );
   }
+  refresh(): void {
+    window.location.reload();
+  }
 
 }

@@ -8,10 +8,12 @@
 
 <div [ngClass]="{'is-user': user, 'is-anon': anon}">
   <div *ngIf="loading">
-
-    <img src="../assets/img/senora-resize.png" />
-    <p> Loading...</p>
-
+    <div>
+      <img src="../assets/img/senora-resize.png" />
+    </div>
+    <div>
+      <p> Loading...</p>
+    </div>
   </div>
 </div>
 <div style="text-align:center">
