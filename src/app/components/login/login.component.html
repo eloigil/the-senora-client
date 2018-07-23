@@ -1,14 +1,14 @@
-<form [ngClass]="{'has-error': error}" novalidate>
-  <div class="form-login field" [ngClass]="{'has-error': error}">
-    <label>Username</label>
-    <input type="text" [(ngModel)]="user.username" name="username" required/>
-  </div>
-  <div class="form-login field" [ngClass]="{'has-error': error}">
-    <label>Password</label>
-    <input type="password" [(ngModel)]="user.password" name="password" required/>
-  </div>
-  <div class="form-login actions">
-    <button (click)="login()">login</button>
-    <p *ngIf="error" class="error">{{error}}</p>
-  </div>
-</form>
+<section class="form-card card">
+  <form [ngClass]="{'has-error': error}" novalidate>
+    <div class="form field" [ngClass]="{'has-error': error}">
+      <input type="text" [(ngModel)]="user.username" name="username" placeholder="username" required/>
+    </div>
+    <div class="form field" [ngClass]="{'has-error': error}">
+      <input type="password" [(ngModel)]="user.password" name="password" placeholder="password" required/>
+    </div>
+    <div class="form actions">
+      <button (click)="login()">login</button>
+      <p *ngIf="error" class="error">{{error}}</p>
+    </div>
+  </form>
+</section>

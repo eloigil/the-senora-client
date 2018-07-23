@@ -1,18 +1,18 @@
-<form [ngClass]="{'has-error': error}" novalidate>
-  <div class="form-signup field" [ngClass]="{'has-error': error}">
-    <label>Name</label>
-    <input type="text" [(ngModel)]="user.name" name="name" required/>
-  </div>
-  <div class="form-signup field" [ngClass]="{'has-error': error}">
-    <label>Username</label>
-    <input type="text" [(ngModel)]="user.username" name="username" required/>
-  </div>
-  <div class="form-signup field" [ngClass]="{'has-error': error}">
-    <label>Password</label>
-    <input type="password" [(ngModel)]="user.password" name="password" required/>
-  </div>
-  <div class="form-signup actions">
-    <button (click)="signup()">signup</button>
-    <p *ngIf="error" class="error">{{error}}</p>
-  </div>
-</form>
+<section class="form-card card">
+  <form [ngClass]="{'has-error': error}" novalidate>
+      <div class="form field" [ngClass]="{'has-error': error}">
+        <input type="text" [(ngModel)]="user.name" name="name" placeholder="name"required/>
+      </div>
+      <div class="form field" [ngClass]="{'has-error': error}">
+        <input type="text" [(ngModel)]="user.username" name="username" placeholder="username"rrequired/>
+      </div>
+      <div class="form field" [ngClass]="{'has-error': error}">
+        <input type="password" [(ngModel)]="user.password" name="password" placeholder="password"rrequired/>
+      </div>
+      <div class="form actions">
+        <button (click)="signup()">signup</button>
+        <p *ngIf="error" class="error">{{error}}</p>
+      </div>
+    </form>
+</section>
+

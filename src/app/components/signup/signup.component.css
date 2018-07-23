@@ -1,0 +1,62 @@
+.form-card {
+  max-width: 320px;
+  border: 3px solid #fff;
+}
+
+.card {
+  border-radius: 10px;
+  padding-top: 20px;
+}
+
+.form {
+  margin-bottom: 12px;
+}
+
+.form-card {
+  max-width: 320px;
+  border: 3px solid #fff;
+
+  margin: 0 auto;
+}
+
+.card {
+  border-radius: 10px;
+  padding-top: 20px;
+
+  margin-bottom: 40px;
+}
+
+.form {
+  margin-bottom: 12px;
+}
+
+.form.field input {
+  width: 60%;
+  max-width: 180px;
+  
+  height: 2.7em;
+  
+  background: none;
+  border: 2px solid #FF0096;
+  border-radius: 20px;
+  
+  padding-left: 16px;
+}
+
+.form.field input::placeholder {
+  color: #FF0096;
+}
+
+.form.actions button{
+
+  width: 50%;
+  max-width: 130px;
+  
+  height: 2.7em;
+  
+  background: #FF0096;
+  border: 2px solid #FF0096;
+  border-radius: 20px;
+  
+  color: #254263;
+}

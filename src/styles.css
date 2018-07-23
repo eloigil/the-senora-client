@@ -1,5 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-
+/* reset */
 html {
   box-sizing: border-box;
 }
@@ -10,21 +9,10 @@ html {
   box-sizing: inherit;
 }
 
-html {
-  height: 100vh;
-}
-
 body {
   margin: 0px;
   padding: 0px;
-  height: 100vh;
-}
 
-html {
-  background-image: url("./assets/img/background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 a,
@@ -42,6 +30,16 @@ h1 {
   margin: 0px;
   padding: 0px;
   color: #FF0096;
+}
+
+.main-container {
+  width: 100%;
+  min-height: 100vh;
+
+  position: absolute;
+  z-index: -9999;
+
+  background: linear-gradient(135deg, #254263 0%,#6b3b85 100%);
 }
 
 .icon {
