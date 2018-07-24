@@ -31,12 +31,13 @@ export class AuthService {
   }
 
   signup(user: User) {
-
+    console.log(user)
     const options = new RequestOptions();
-    console.log(apiUrl);
+    console.log('xxx', apiUrl);
     options.withCredentials = true;
     return this.http.post(apiUrl + '/signup', user, options)
       .map(res => {
+        console.log('asdasd')
         this.setUser(new User(res.json()));
         return user;
       });
