@@ -40,6 +40,7 @@ h1 {
   z-index: -9999;
 
   background: linear-gradient(135deg, #254263 0%,#6b3b85 100%);
+  background-repeat: no-repeat;
 }
 
 .icon {
@@ -66,6 +67,7 @@ h1 {
   border: 3px solid #fff;
 
   margin: 0 auto;
+  box-shadow: 0px 8px 14px -5px rgba(0,0,0,0.5);
 }
 
 .card {
@@ -95,7 +97,7 @@ h1 {
 }
 
 .form.field input::placeholder {
-  color: #FF0096;
+  color: #FFF;
 }
 
 .form.actions button{
@@ -110,4 +112,5 @@ h1 {
   border-radius: 20px;
   
   color: #254263;
+  font-weight: bold;
 }

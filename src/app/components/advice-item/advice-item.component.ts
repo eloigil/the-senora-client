@@ -22,6 +22,7 @@ export class AdviceItemComponent implements OnInit {
 
   ngOnInit() {
     this.pusherService.messagesChannel.bind('client-new-message', (message) => {
+      debugger
       this.messages.push(message);
     });
   }
@@ -37,7 +38,6 @@ export class AdviceItemComponent implements OnInit {
   }
 
   sendMessage(message) {
-
     this.pusherService.messagesChannel.trigger('client-new-message', message);
     this.messages.push(message);
   }

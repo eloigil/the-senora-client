@@ -13,7 +13,6 @@ const apiUrl = environment.apiUrl;
 
 declare const Pusher: any;
 
-
 @Injectable()
 export class PusherService {
   pusher: any;
@@ -23,10 +22,19 @@ export class PusherService {
 
   constructor() {
     this.pusher = new Pusher('b843d151cbd14da89670', {
-      authEndpoint: 'http://localhost:3001/pusher/auth',
+      authEndpoint: 'http://localhost:3000/pusher/auth',
       cluster: 'eu',
       encrypted: true
     });
+    
     this.messagesChannel = this.pusher.subscribe('private-messages');
+    
   }
+
+  sendMessage(message){
+    debugger
+    this.messagesChannel.trigger('my-event', {user: message});
+  }
+
+  
 }
